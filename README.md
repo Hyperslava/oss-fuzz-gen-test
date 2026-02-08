@@ -83,6 +83,9 @@ source senv/bin/activate
 ```
 pip install -r requirements.txt
 ```
+![Alt text](images/image(17).png "Image3")
+![Alt text](images/image(18).png "Image3")
+
 Установить пакет oss-fuzz-gen:
 ```
 pip install .
