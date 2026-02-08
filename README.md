@@ -90,28 +90,43 @@ pip install -r requirements.txt
 ```
 pip install .
 ```
-Сообщение Successfully built Oss-Fuzz-gen означает, что установка oss-fuzz-gen успешно выполнена.
+![Alt text](images/image(19).png "Image3")
+
+Сообщение Successfully built OSS-Fuzz-gen означает, что установка oss-fuzz-gen успешно выполнена:
+![Alt text](images/image(20).png "Image3")
 ## Авторизация в Google Cloud SDK
 Проект oss-fuzz-gen поддерживает 2 способа использовать LLM: через Google Cloud SDK (модели Vertex AI Gemini/Claude), или через OpenAI API (модели GPT). Я решил настроить Google Cloud SDK, так как при регистрации активируется бонус на 300$ для использования сервисов Google Cloud, в том числе Vertex AI.
+
+Для начала нужно создать аккаунт Google, если его нет, зайти на сайт https://console.cloud.google.com/welcome, войти в аккаунт и авторизовать сервис Billing.
+
+Далее необходимо активировать Vertex AI API, для этого нужно перейти по адресу https://docs.cloud.google.com/vertex-ai/docs/start/cloud-environment, на странице нажать на Enable the API, и уже на странице проекта в Google Cloud подтвердить активацию Vertex AI API:
+![Alt text](images/image(21).png "Image3")
+
+Далее нужно залогиниться в Google Cloud CLI:
 ```
 gcloud auth login
 ```
-
-```gcloud auth application-default login
+![Alt text](images/image(22).png "Image3")
+Перейдя по ссылке, необходимо войти в свой аккаунт Google:
+![Alt text](images/image(23).png "Image3")
+```
+Далее таким же способом залогиниться в Google Auth Library:
+gcloud auth application-default login
 ```
 
+![Alt text](images/image(24).png "Image3")
+Далее указать свой проект, в котором активирован Vertex AI API:
 ```
 gcloud auth application-default set-quota-project <id проекта в Google Cloud>
 ```
-Далее необходимо записать в переменные окружения id проекта и регион, в котором активирован VertexAI API (обычно us-central1)
+![Alt text](images/image(25).png "Image3")
+
+Далее необходимо записать в переменные окружения id проекта и регионы, которые доступны VertexAI API в проекте Google Cloud (через запятую, можно указать один - us-central1)
 ```
 export CLOUD_ML_PROJECT_ID=<id проекта в Google Cloud>
 export VERTEX_AI_LOCATIONS=us-central1
 ```
-
-![Alt text](images/image(4).png "Image3")
-
-git clone https://github.com/google/oss-fuzz-gen.git
+![Alt text](images/image(25).png "Image3")
 ## Запуск генерации oss-fuzz-gen
 Для начало нужно указать цель - репозиторий с проектом, в моём случае это cJSON, ссылку на него я записал в файл input.txt:
 ```
