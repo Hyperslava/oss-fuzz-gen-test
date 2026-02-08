@@ -1,4 +1,4 @@
-<img width="851" height="581" alt="image" src="https://github.com/user-attachments/assets/eece34cc-84b2-4e4a-a629-afa2ef495630" /># oss-fuzz-gen. Установка и запуск на примере Kali Linux.
+# oss-fuzz-gen. Установка и запуск на примере Kali Linux.
 ## 1. Установка зависимостей
 Для работы oss-fuzz-gen необходимо установить следующие зависимости:
 python3.11, git Docker, Google Cloud SDK
@@ -114,8 +114,8 @@ gcloud auth login
 ```
 gcloud auth application-default login
 ```
-
 ![Alt text](images/image(24).png "Image3")
+
 Далее указать свой проект, в котором активирован Vertex AI API:
 ```
 gcloud auth application-default set-quota-project <id проекта в Google Cloud>
@@ -141,15 +141,30 @@ oss-fuzz-gen generate-full -i input.txt -m vertex_ai_gemini-2-flash-chat
 ```
 ![Alt text](images/image(28).png "Image3")
 
-Пошёл процесс
+В процессе работы был собран docker-образ:
 ![Alt text](images/image(29).png "Image3")
+
+Можно увидеть текстовый промтп, отправленный модели:
+
 ![Alt text](images/image(30).png "Image3")
 ![Alt text](images/image(31).png "Image3")
+
+Здесь можно увидеть, что модели была отправлена команда генерации: 
 ![Alt text](images/image(32).png "Image3")
+
+Можно увидеть результат выполнение одной из промежуточных команд:
 ![Alt text](images/image(33).png "Image3")
+
+Данный код, который отобразился в логах, походит на сгенерированный с помощью модели:
 ![Alt text](images/image(34).png "Image3")
+
+Здесь можно увидеть, как модель отвечала текстом:
 ![Alt text](images/image(35).png "Image3")
+
+По итогу процесс работы был завершшён данным образом, что может указывать на то, что в процессе генерации возникли какие-то ошибки:
+
 ![Alt text](images/image(36).png "Image3")
 
+Но, тем не менее, получилось заставить модель начать генерацию, как было видно по логам.
 
 
