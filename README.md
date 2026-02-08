@@ -10,6 +10,7 @@ python3.11, git Docker, Google Cloud SDK
 wget https://www.python.org/ftp/python3.11.14/Python-3.11.14.tgz
 ```
  ![Alt text](images/image(3).png "Image3")
+ 
  Распаковал его:
 ```
 sudo tar xzf Python-3.11.14.tgz
@@ -18,15 +19,22 @@ sudo tar xzf Python-3.11.14.tgz
 ```
 sudo apt install libssl-dev
 ```
+ ![Alt text](images/image(2).png "Image3")
+ 
 Выполнил скрипт configure:
 ```
 sudo ./configure --enable-optimizations
 ```
+ ![Alt text](images/image(5).png "Image3")
+ 
 Запустил процесс сборки и установки python3.11 в систему как альтернативную версию Python:
 ```
 sudo make altinstall
 ```
+![Alt text](images/image(6).png "Image3")
+
 Через некоторое время процесс установки завершился:
+![Alt text](images/image(7).png "Image3")
 
 ### Установка Docker
 Для установки Docker на Kali Linux я добавил репозиторий Docker в apt, и уже через него установил все необходимые компоненты для Docker:
@@ -38,7 +46,11 @@ curl -fsSL https://download.docker.com/linux/debian/gpg |
 sudo apt update
 sudo apt install docker-ce docker-ce-cli containerd.io docker-buildx-plugin docker-compose-plugin
 ```
-После установки необходимо сделать так, чтобы команды docker можно было запускать без sudo, как как в будущем docker будет запускаться при работа oss-fuzz-gen, и запуск через sudo приведёт к тому, что будет использоваться не виртульное окружение python3.11, а системное.
+![Alt text](images/image(9).png "Image3")
+![Alt text](images/image(10).png "Image3")
+![Alt text](images/image(11).png "Image3")
+
+После установки необходимо сделать так, чтобы команды docker можно было запускать без sudo, как как в будущем docker будет запускаться при работа oss-fuzz-gen, и запуск через sudo приведёт к тому, что будет использоваться не виртуальное окружение python3.11, а системное.
 ```
 sudo usermode -aG docker $USER
 newgrp docker
@@ -51,12 +63,17 @@ echo "deb [signed-by=/usr/share/keyrings/cloud.google.gpg] https://packages.clou
 sudo apt update
 sudo apt install google-cloud-cli
 ```
+![Alt text](images/image(12).png "Image3")
+![Alt text](images/image(13).png "Image3")
+![Alt text](images/image(14).png "Image3")
 ## Установка oss-fuzz-gen
-Скопировать репозиторий:
+Первым делом нужно скопировать репозиторий:
 ```
 git clone https://github.com/google/oss-fuzz-gen.git
 ```
-Перейти в папку oss-fuzz-gen, создать и активировать виртульное окружение python3.11:
+![Alt text](images/image(15).png "Image3")
+
+Перейти в папку oss-fuzz-gen, создать и активировать виртуальное окружение python3.11:
 ```
 cd oss-fuzz-gen
 python3.11 -m venv .venv
