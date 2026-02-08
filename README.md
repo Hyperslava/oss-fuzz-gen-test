@@ -1,4 +1,4 @@
-# oss-fuzz-gen. Установка и запуск на примере Kali Linux.
+<img width="851" height="581" alt="image" src="https://github.com/user-attachments/assets/eece34cc-84b2-4e4a-a629-afa2ef495630" /># oss-fuzz-gen. Установка и запуск на примере Kali Linux.
 ## 1. Установка зависимостей
 Для работы oss-fuzz-gen необходимо установить следующие зависимости:
 python3.11, git Docker, Google Cloud SDK
@@ -109,8 +109,9 @@ gcloud auth login
 ![Alt text](images/image(22).png "Image3")
 Перейдя по ссылке, необходимо войти в свой аккаунт Google:
 ![Alt text](images/image(23).png "Image3")
-```
+
 Далее таким же способом залогиниться в Google Auth Library:
+```
 gcloud auth application-default login
 ```
 
@@ -126,14 +127,29 @@ gcloud auth application-default set-quota-project <id проекта в Google C
 export CLOUD_ML_PROJECT_ID=<id проекта в Google Cloud>
 export VERTEX_AI_LOCATIONS=us-central1
 ```
-![Alt text](images/image(25).png "Image3")
+![Alt text](images/image(26).png "Image3")
 ## Запуск генерации oss-fuzz-gen
-Для начало нужно указать цель - репозиторий с проектом, в моём случае это cJSON, ссылку на него я записал в файл input.txt:
+Для начала нужно указать цель - репозиторий с проектом, в моём случае это cJSON, ссылку на него я записал в файл input.txt:
 ```
 echo "https://github.com/DaveGamble/cJSON.git" > input.txt
 ```
+![Alt text](images/image(27).png "Image3")
+
 Далее я запустил генерацию, указав входной файл и модель, я выбрал vertex_ai_gemini-2-flash-chat:
 ```
 oss-fuzz-gen generate-full -i input.txt -m vertex_ai_gemini-2-flash-chat
 ```
-Пошёл процесс 
+![Alt text](images/image(28).png "Image3")
+
+Пошёл процесс
+![Alt text](images/image(29).png "Image3")
+![Alt text](images/image(30).png "Image3")
+![Alt text](images/image(31).png "Image3")
+![Alt text](images/image(32).png "Image3")
+![Alt text](images/image(33).png "Image3")
+![Alt text](images/image(34).png "Image3")
+![Alt text](images/image(35).png "Image3")
+![Alt text](images/image(36).png "Image3")
+
+
+
