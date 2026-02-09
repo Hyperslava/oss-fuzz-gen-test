@@ -128,12 +128,20 @@ export CLOUD_ML_PROJECT_ID=<id проекта в Google Cloud>
 export VERTEX_AI_LOCATIONS=us-central1
 ```
 ![Alt text](images/image(26).png "Image3")
+## Подготовка репозитория
+Я буду проверять работу oss-fuzz-gen на репозитории cJSON, на конкретном коммите 3a7bd69.
+
+Для этого я форкнул оригинальный репозиторий https://github.com/DaveGamble/cJSON, создал на Kali Linux SSH-ключ для возможности внести изменения в репозиторий, добавил этот ключ в свой аккаунт GitHub,
+клонировал форкнутый репозиторий, откатил состояния до коммита 3a7bd69 и запушил:
+
+![Alt text](images/image(37).png "Image3")
+![Alt text](images/image(38).png "Image3")
 ## Запуск генерации oss-fuzz-gen
-Для начала нужно указать цель - репозиторий с проектом, в моём случае это cJSON, ссылку на него я записал в файл input.txt:
+Для начала нужно указать цель - репозиторий с проектом, ссылку на него я записал в файл input.txt:
 ```
-echo "https://github.com/DaveGamble/cJSON.git" > input.txt
+echo "https://github.com/Hyperslava/cJSONtest.git" > input.txt
 ```
-![Alt text](images/image(27).png "Image3")
+![Alt text](images/image(39).png "Image3")
 
 Далее я запустил генерацию, указав входной файл и модель, я выбрал vertex_ai_gemini-2-flash-chat:
 ```
