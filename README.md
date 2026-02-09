@@ -176,9 +176,11 @@ oss-fuzz-gen generate-full -i input.txt -m vertex_ai_gemini-2-flash-chat
 ![Alt text](images/image(44).png "Image3")
 
 Создался такой файл build.sh:
-![Alt text](images/image(45).png "Image3")
-И такой Dockerfile:
 ![Alt text](images/image(46).png "Image3")
+
+И такой Dockerfile:
+
+![Alt text](images/image(47).png "Image3")
 
 Но, тем не менее, получилось заставить модель начать генерацию, как было видно по логам.
 
