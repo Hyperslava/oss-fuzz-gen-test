@@ -97,7 +97,7 @@ pip install .
 ## Авторизация в Google Cloud SDK
 Проект oss-fuzz-gen поддерживает 2 способа использовать LLM: через Google Cloud SDK (модели Vertex AI Gemini/Claude), или через OpenAI API (модели GPT). Я решил настроить Google Cloud SDK, так как при регистрации активируется бонус на 300$ для использования сервисов Google Cloud, в том числе Vertex AI.
 
-Для начала нужно создать аккаунт Google, если его нет, зайти на сайт https://console.cloud.google.com/welcome, войти в аккаунт и авторизовать сервис Billing.
+Для начала нужно создать аккаунт Google, если его нет, зайти на сайт https://console.cloud.google.com/welcome, войти в аккаунт и авторизовать сервис Billing (российские карты не принимаются).
 
 Далее необходимо активировать Vertex AI API, для этого нужно перейти по адресу https://docs.cloud.google.com/vertex-ai/docs/start/cloud-environment, на странице нажать на Enable the API, и уже на странице проекта в Google Cloud подтвердить активацию Vertex AI API:
 ![Alt text](images/image(21).png "Image3")
